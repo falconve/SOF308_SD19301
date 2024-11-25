@@ -13,6 +13,7 @@
 -->
 <script setup>
 import { ref } from 'vue'
+import Tables from './Tables.vue'
 
 // Khai báo biến status để lưu trạng thái đăng nhập
 // Trạng thái mặc định là loggedOut
@@ -86,6 +87,9 @@ function login() {
   </div>
   <div class="alert alert-success mt-3" role="alert" v-else>
     Chào mừng bạn {{ user }}
+  </div>
+  <div class="products-table">
+    <Tables :status="status" />
   </div>
 </template>
 

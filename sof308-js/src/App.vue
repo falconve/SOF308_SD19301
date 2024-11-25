@@ -1,4 +1,5 @@
 <script setup>
+import { ref } from 'vue'
 // BT1: Khai báo 2 biến fullName và studentCode
 let fullName = 'Tuan Anh'
 let studentCode = 'PP00001'
@@ -31,6 +32,12 @@ import Bai2 from './components/Bai2.vue'
 import State from './components/State.vue'
 import ClassBinding from './components/ClassBinding.vue'
 import Form from './components/Form.vue'
+import VShow from './components/VShow.vue'
+import VEvent from './components/VEvent.vue'
+import FormBinding from './components/FormBinding.vue'
+import Props from './components/Props.vue'
+
+let tinNhan = ref('Xin chào...')
 </script>
 
 <template>
@@ -94,7 +101,12 @@ import Form from './components/Form.vue'
       <!-- <Bai2 />
       <State />
       <ClassBinding /> -->
+      <!-- <VShow /> -->
+      <!-- <VEvent />
+      -->
       <Form />
+      <!-- <FormBinding /> -->
+      <Props :message="tinNhan" />
     </div>
   </div>
 </template>
