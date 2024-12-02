@@ -1,5 +1,5 @@
 <script setup>
-import { ref } from 'vue'
+import { reactive, ref } from 'vue'
 // BT1: Khai báo 2 biến fullName và studentCode
 let fullName = 'Tuan Anh'
 let studentCode = 'PP00001'
@@ -36,8 +36,25 @@ import VShow from './components/VShow.vue'
 import VEvent from './components/VEvent.vue'
 import FormBinding from './components/FormBinding.vue'
 import Props from './components/Props.vue'
+import Emits from './components/Emits.vue'
+import BookForm from './components/BookForm.vue'
+import Book from './components/Book.vue'
+import { RouterLink, RouterView } from 'vue-router'
 
 let tinNhan = ref('Xin chào...')
+
+let tinNhanEmit = ref('')
+
+function emitHandle(tinNhan) {
+  tinNhanEmit.value = tinNhan
+}
+
+// let books = reactive([])
+
+// function handleBook(book) {
+//   books.push(book)
+//   //console.log(books)
+// }
 </script>
 
 <template>
@@ -104,10 +121,32 @@ let tinNhan = ref('Xin chào...')
       <!-- <VShow /> -->
       <!-- <VEvent />
       -->
-      <Form />
+      <!-- <Form /> -->
       <!-- <FormBinding /> -->
-      <Props :message="tinNhan" />
+      <!-- <Props :message="tinNhan" /> -->
+
+      <!-- Khi ấn vào nút "Ấn vào đây..." thì ở App.vue 
+      hiển thị ra một đoạn thông báo 
+      -->
+      <!-- <Emits @emitEvent="emitHandle" /> -->
+
+      <!-- <h2>{{ tinNhanEmit }}</h2> -->
+
+      <!-- GỢI Ý:
+      Tạo ra 2 components:
+      1. Component số 1: BookForm.vue thêm sách (sử dụng v-model)
+      2. Component số 2: hiển thị sách (sử dụng v-for)
+      3. 2 component này import vào app.vue
+      -->
+      <!-- Sử dụng Emit để nhận dữ liệu sách từ con -->
+      <!-- <BookForm @add-book="handleBook" /> -->
+      <!-- Sử dụng prop để hiển thị sách từ cha-->
+
+      <!-- <Book /> -->
     </div>
+  </div>
+  <div id="app">
+    <RouterView />
   </div>
 </template>
 
